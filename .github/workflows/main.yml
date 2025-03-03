@@ -2,8 +2,8 @@ name: Build Godot Project
 
 on:
   push:
-    paths:
-      - 'projects/monstrous/buildTrigger.txt'
+#    paths:
+#      - 'projects/monstrous/buildTrigger.txt'
 
 jobs:
   export_game:
@@ -23,8 +23,8 @@ jobs:
         with:
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
-          relative_project_path: /projects/monstrous # build the standard project
-          relative_export_path: /projects/monstrous # move export output to this directory relative to git root
+          relative_project_path: ./projects/monstrous # build the standard project
+          relative_export_path: ./projects/monstrous/build # move export output to this directory relative to git root
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
