@@ -1,16 +1,28 @@
+name: Build Godot Project
+
 on:
-  push
+  push: {}
+  pull_request: {}
 
 jobs:
-  export_game:
-    name: Export Game Job
+  Godot:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [linux, windows, mac]
     steps:
-      - name: export game
-        id: export
-        uses: firebelley/godot-export@v6.0.0
+      - uses: actions/checkout@v2
         with:
-          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
-          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
-          relative_project_path: ./projects/monstrous # build the standard project
-          relative_export_path: ./projects/monstrous # move export output to this directory relative to git root
-          archive_output: true
+          lfs: true
+      - name: Build
+        id: build
+        uses: manleydev/build-godot-action@v1.4.1
+        with:
+          name: example
+          preset: ${{ matrix.platform }}
+          debugMode: "true"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Client - ${{ matrix.platform }}
+          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
