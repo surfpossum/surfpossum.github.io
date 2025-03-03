@@ -16,7 +16,7 @@ jobs:
         uses: manleydev/build-godot-action@v1.4.1
         with:
           name: monstrous
-          preset: HTML5
+          preset: Monstrous
           projectDir: projects/monstrous
           debugMode: "true"
       - name: Upload Artifact
