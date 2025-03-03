@@ -18,6 +18,7 @@ jobs:
           name: monstrous
           preset: Monstrous
           projectDir: projects/monstrous
+          run: godot --export-debug HTML5 --headless
           debugMode: "true"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
