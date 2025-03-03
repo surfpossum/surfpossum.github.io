@@ -8,7 +8,7 @@ jobs:
   Godot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           lfs: true
       - name: Build
@@ -19,7 +19,7 @@ jobs:
           preset: HTML5
           debugMode: "true"
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Monstrous
           path: surfpossum.github.io/projects/monstrous
