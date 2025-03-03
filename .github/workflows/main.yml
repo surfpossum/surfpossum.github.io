@@ -17,6 +17,7 @@ jobs:
         with:
           name: monstrous
           preset: HTML5
+          projectDir: projects/monstrous
           debugMode: "true"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
