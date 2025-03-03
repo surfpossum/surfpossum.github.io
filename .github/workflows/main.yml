@@ -15,6 +15,7 @@ jobs:
         id: build
         uses: manleydev/build-godot-action@v1.4.1
         with:
+          version: 3.3.4
           name: monstrous
           preset: Monstrous
           projectDir: projects/monstrous
