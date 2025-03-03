@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Monstrous
-          path: surfpossum.github.io/projects/monstrous
+          path: /projects/monstrous
