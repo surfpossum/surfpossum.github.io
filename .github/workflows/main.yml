@@ -32,3 +32,8 @@ jobs:
           relative_export_path: ./projects/godot-test/build # move export output to this directory relative to git root
           cache: true
           verbose: true
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test
+          path: /projects/godot-test/build
