@@ -28,14 +28,7 @@ jobs:
         with:
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
-          relative_project_path: ./projects/monstrous # build the standard project
-          relative_export_path: ./projects/monstrous/build # move export output to this directory relative to git root
+          relative_project_path: ./projects/godot-test # build the standard project
+          relative_export_path: ./projects/godot-test/build # move export output to this directory relative to git root
           cache: true
           verbose: true
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Monstrous
-          path: /projects/monstrous
-#/home/runner/work/surfpossum.github.io/surfpossum.github.io/projects/monstrous/project.godot
-#/home/runner/work/godot-export/godot-export/examples/project-godot-4/project.godot
