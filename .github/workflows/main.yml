@@ -31,6 +31,7 @@ jobs:
           relative_project_path: ./projects/monstrous # build the standard project
           relative_export_path: ./projects/monstrous/build # move export output to this directory relative to git root
           cache: true
+          verbose: true
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
