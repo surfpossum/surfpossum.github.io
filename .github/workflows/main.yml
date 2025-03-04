@@ -18,6 +18,10 @@ jobs:
 #        run: |
 #          sudo apt install wine64
 #          echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
+#      - name: use custom editor settings
+#        run: |
+#          mkdir -p ~/.config/godot
+#          cp ~/path/to/my/editor_settings-3.tres ~/.config/godot/
       - name: export game
         id: export
         uses: firebelley/godot-export@v6.0.0
@@ -26,6 +30,7 @@ jobs:
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
           relative_project_path: ./projects/monstrous # build the standard project
           relative_export_path: ./projects/monstrous/build # move export output to this directory relative to git root
+          cache: true
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
