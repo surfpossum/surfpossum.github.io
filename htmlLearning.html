@@ -149,8 +149,8 @@ function handleOrientation(event) {
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
 	
 	//update x and y based on orientation
-	myGameArea.x += myGameArea.orientationX / 50;
-	myGameArea.y += myGameArea.orientationY / 50;
+	myGameArea.x += Math.pow(myGameArea.orientationX, 2) / 50;
+	myGameArea.y += Math.pow(myGameArea.orientationY, 2) / 50;
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
@@ -160,6 +160,7 @@ window.addEventListener("deviceorientation", handleOrientation);
 <p>The square follows your mouse or the tilt of your phone.</p>
 	
 <button id="butt1" type="button" onclick="getOrientationPermission()">Click me to allow tilt on iPhone.</button>
-	
+
+<p>This bit is here to tell me that we are on v0.0.001</p>
 </body>
 </html>
