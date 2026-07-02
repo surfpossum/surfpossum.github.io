@@ -33,6 +33,7 @@ function getOrientationPermission()  {
 var myGamePiece;
 
 function startGame() {
+	lock(orientation);
     myGamePiece = new component(30, 30, "red", 10, 120);          
     myGameArea.start();
 	myGameArea.x = 100;
