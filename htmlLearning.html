@@ -158,14 +158,14 @@ function handleOrientation(event) {
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
 	
 	//update x and y based on orientation
-	if (myGameArea.orientationX < 0)
+	if (myGameArea.orientationX - myGameArea.orientationOffsetX < 0)
 		myGameArea.x -= Math.pow(myGameArea.orientationX - myGameArea.orientationOffsetX, 2) / 200;
 	else
 		myGameArea.x += Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetY, 2) / 200;
-	if (myGameArea.orientationY < 0)
-		myGameArea.y -= Math.pow(myGameArea.orientationY, 2) / 200;
+	if (myGameArea.orientationY - myGameArea.orientationOffsetY < 0)
+		myGameArea.y -= Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetX, 2) / 200;
 	else
-		myGameArea.y += Math.pow(myGameArea.orientationY, 2) / 200;
+		myGameArea.y += Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetY, 2) / 200;
 
 	if (myGameArea.x < -10) myGameArea.x = -10;
 	if (myGameArea.x > myGameArea.canvas.width + 10) myGameArea.x = myGameArea.canvas.width + 10;
@@ -182,6 +182,6 @@ window.addEventListener("deviceorientation", handleOrientation);
 <button id="butt1" type="button" onclick="getOrientationPermission()">Click me to allow tilt on iPhone</button>
 <button id="butt2" type="button" onclick="setOrientationOffset()">Click me to set the current orientation as flat</button>
 
-<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.006</p>
+<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.007</p>
 </body>
 </html>
