@@ -128,12 +128,11 @@ function updateGameArea() {
     myGamePiece.update();
 	
 	ctx = myGameArea.context;
-	ctx.fillRect(50, 35, 40, 35); 
 	ctx.font = "14px Arial";
-	ctx.fillText("tiltX is " + Math.round(myGameArea.orientationX,2).toString(), 10, 10);
-	ctx.fillText("tiltY is " + Math.round(myGameArea.orientationY,2).toString(), 10, 30);
-	ctx.fillText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
-	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);
+	ctx.strokeText("tiltX is " + Math.round(myGameArea.orientationX,2).toString(), 10, 10);
+	ctx.strokeText("tiltY is " + Math.round(myGameArea.orientationY,2).toString(), 10, 30);
+	ctx.strokeText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
+	ctx.strokeText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);
 }
 
 function handleOrientation(event) {
