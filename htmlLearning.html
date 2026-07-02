@@ -108,6 +108,7 @@ function updateGameArea() {
 	if (myGameArea.erase)
 		myGameArea.clear();
     if (myGameArea.x && myGameArea.y) {
+		//update x and y based on distance from object to cursor
 		var deltaX = myGamePiece.x - myGameArea.x;
 		var deltaY = myGamePiece.y - myGameArea.y;
 		var angle = Math.atan(deltaY / deltaX);
@@ -116,14 +117,18 @@ function updateGameArea() {
 		}
         myGamePiece.speedX = (myGameArea.x - myGamePiece.x) / 5;
         myGamePiece.speedY = (myGameArea.y - myGamePiece.y) / 5;
+
+		//update x and y based on orientation
+		myGameArea.x += myGameArea.orientationX / 30;
+		myGameArea.y += myGameArea.orientationY / 30;
     }
     myGamePiece.angle = angle;                          
     myGamePiece.update();
 	
 	var ctx = myGameArea.context;
 	ctx.font = "14px Arial";
-	ctx.fillText("x is " + Math.round(x,2).toString(), 10, 10);
-	ctx.fillText("y is " + Math.round(y,2).toString(), 10, 30);
+	ctx.fillText("x is " + Math.round(orientationX,2).toString(), 10, 10);
+	ctx.fillText("y is " + Math.round(orientationY,2).toString(), 10, 30);
 	ctx.fillText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
 	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);
 }
@@ -131,9 +136,6 @@ function updateGameArea() {
 function handleOrientation(event) {
 	myGameArea.orientationX = event.gamma; // In degree in the range [-90,90)
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
-
-	myGameArea.x += x / 30;
-	myGameArea.y += y / 30;
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
