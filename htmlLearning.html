@@ -20,7 +20,7 @@ function getOrientationPermission()  {
   }
 
   const permission = DeviceOrientationEvent.requestPermission(true);
-  if (permission == "granted") {
+  if (permission === "granted") {
     window.addEventListener("deviceorientationabsolute", (event) => {
       console.log('Absolute alpha: ${event.alpha}');
     })
