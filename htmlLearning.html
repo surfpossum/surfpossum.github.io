@@ -120,8 +120,8 @@ function handleOrientation(event) {
 	
 	var ctx = myGameArea.context;
 	ctx.font = "14px Arial";
-	ctx.fillText("x is" + x.toString(), 10, 50);
-	ctx.fillText("x is" + y.toString(), 30, 50);
+	ctx.fillText("x is" + x.toString(), 10, 10);
+	ctx.fillText("x is" + y.toString(), 10, 30);
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
