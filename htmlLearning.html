@@ -117,6 +117,13 @@ function updateGameArea() {
     }
     myGamePiece.angle = angle;                          
     myGamePiece.update();
+	
+	var ctx = myGameArea.context;
+	ctx.font = "14px Arial";
+	ctx.fillText("x is " + Math.round(x,2).toString(), 10, 10);
+	ctx.fillText("y is " + Math.round(y,2).toString(), 10, 30);
+	ctx.fillText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
+	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);
 }
 
 function handleOrientation(event) {
@@ -125,13 +132,6 @@ function handleOrientation(event) {
 
 	myGameArea.x += x / 30;
 	myGameArea.y += y / 30;
-	
-	var ctx = myGameArea.context;
-	ctx.font = "14px Arial";
-	ctx.fillText("x is " + Math.round(x,2).toString(), 10, 10);
-	ctx.fillText("y is " + Math.round(y,2).toString(), 10, 30);
-	ctx.fillText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
-	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
