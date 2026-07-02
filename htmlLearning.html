@@ -108,19 +108,19 @@ function updateGameArea() {
 	if (myGameArea.erase)
 		myGameArea.clear();
     if (myGameArea.x && myGameArea.y) {
-		//update x and y based on distance from object to cursor
+		
+		//find angle from x and y to game piece
 		var deltaX = myGamePiece.x - myGameArea.x;
 		var deltaY = myGamePiece.y - myGameArea.y;
 		var angle = Math.atan(deltaY / deltaX);
 		if (deltaX < 0) {
 			angle += Math.PI;
 		}
+
+		//update game piece speed based on distance from x and y
         myGamePiece.speedX = (myGameArea.x - myGamePiece.x) / 5;
         myGamePiece.speedY = (myGameArea.y - myGamePiece.y) / 5;
 
-		//update x and y based on orientation
-		myGameArea.x += myGameArea.orientationX / 100;
-		myGameArea.y += myGameArea.orientationY / 100;
     }
     myGamePiece.angle = angle;                          
     myGamePiece.update();
@@ -136,6 +136,10 @@ function updateGameArea() {
 function handleOrientation(event) {
 	myGameArea.orientationX = event.gamma; // In degree in the range [-90,90)
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
+	
+	//update x and y based on orientation
+	myGameArea.x += myGameArea.orientationX / 100;
+	myGameArea.y += myGameArea.orientationY / 100;
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
