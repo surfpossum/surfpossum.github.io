@@ -119,8 +119,8 @@ function updateGameArea() {
         myGamePiece.speedY = (myGameArea.y - myGamePiece.y) / 5;
 
 		//update x and y based on orientation
-		myGameArea.x += myGameArea.orientationX / 30;
-		myGameArea.y += myGameArea.orientationY / 30;
+		myGameArea.x += myGameArea.orientationX / 100;
+		myGameArea.y += myGameArea.orientationY / 100;
     }
     myGamePiece.angle = angle;                          
     myGamePiece.update();
