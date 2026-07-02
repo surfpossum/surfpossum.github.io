@@ -26,7 +26,7 @@ var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
 		this.erase = true;
-        this.canvas.width = 100%;
+        this.canvas.width = 300;
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -105,8 +105,7 @@ function updateGameArea() {
 
 <p>The square follows your mouse.  Try a click.</p>
 
-<button id="butt1" type="button">
-Click me.</button>
+<button id="butt1" type="button">Click me.</button>
 
 
 <script>
