@@ -125,7 +125,7 @@ function updateGameArea() {
     myGamePiece.angle = angle;                          
     myGamePiece.update();
 	
-	var ctx = myGameArea.context;
+	ctx = myGameArea.context;
 	ctx.font = "14px Arial";
 	ctx.fillText("x is " + Math.round(orientationX,2).toString(), 10, 10);
 	ctx.fillText("y is " + Math.round(orientationY,2).toString(), 10, 30);
@@ -138,8 +138,8 @@ function handleOrientation(event) {
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
 	
 	//update x and y based on orientation
-	myGameArea.x += myGameArea.orientationX / 100;
-	myGameArea.y += myGameArea.orientationY / 100;
+	myGameArea.x += myGameArea.orientationX / 50;
+	myGameArea.y += myGameArea.orientationY / 50;
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
