@@ -127,8 +127,8 @@ function updateGameArea() {
 }
 
 function handleOrientation(event) {
-	let x = event.gamma; // In degree in the range [-90,90)
-	let y = event.beta; // In degree in the range [-180,180)
+	myGameArea.orientationX = event.gamma; // In degree in the range [-90,90)
+	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
 
 	myGameArea.x += x / 30;
 	myGameArea.y += y / 30;
