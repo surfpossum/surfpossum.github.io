@@ -104,24 +104,6 @@ function updateGameArea() {
 </script>
 
 <p>The square follows your mouse.  Try a click.</p>
-
-<button id="butt1" type="button">Click me.</button>
-
-
-<script>
-document.getElementById("butt1").addEventListener("click", async () => {
-  if (typeof DeviceOrientationEvent.requestPermission !== "function") {
-    return;
-  }
-
-  const permission = await DeviceOrientationEvent.requestPermission(true);
-  if (permission === "granted") {
-    window.addEventListener("deviceorientationabsolute", (event) => {
-      console.log(`Absolute alpha: ${event.alpha}`);
-    });
-  }
-});
-</script>
 	
 </body>
 </html>
