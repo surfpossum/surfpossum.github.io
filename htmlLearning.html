@@ -161,9 +161,9 @@ function handleOrientation(event) {
 	if (myGameArea.orientationX - myGameArea.orientationOffsetX < 0)
 		myGameArea.x -= Math.pow(myGameArea.orientationX - myGameArea.orientationOffsetX, 2) / 200;
 	else
-		myGameArea.x += Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetY, 2) / 200;
+		myGameArea.x += Math.pow(myGameArea.orientationX - myGameArea.orientationOffsetX, 2) / 200;
 	if (myGameArea.orientationY - myGameArea.orientationOffsetY < 0)
-		myGameArea.y -= Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetX, 2) / 200;
+		myGameArea.y -= Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetY, 2) / 200;
 	else
 		myGameArea.y += Math.pow(myGameArea.orientationY - myGameArea.orientationOffsetY, 2) / 200;
 
@@ -180,8 +180,8 @@ window.addEventListener("deviceorientation", handleOrientation);
 <p>The square follows your mouse or the tilt of your phone.</p>
 	
 <button id="butt1" type="button" onclick="getOrientationPermission()">Click me to allow tilt on iPhone</button>
-<button id="butt2" type="button" onclick="setOrientationOffset()">Click me to set the current orientation as flat</button>
+<button id="butt2" type="button" onclick="setOrientationOffset()">Click me to set the current orientation as flat (or break things)</button>
 
-<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.007</p>
+<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.008</p>
 </body>
 </html>
