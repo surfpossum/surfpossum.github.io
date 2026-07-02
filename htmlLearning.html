@@ -127,9 +127,11 @@ function updateGameArea() {
     myGamePiece.angle = angle;                          
     myGamePiece.update();
 
-	ctx.beginPath();
-	ctx.arc(myGameArea.x, myGameArea.y, 3, 0, 2 * Math.PI);
-	ctx.stroke();
+	if (myGameArea.erase) {
+		ctx.beginPath();
+		ctx.arc(myGameArea.x, myGameArea.y, 3, 0, 2 * Math.PI);
+		ctx.stroke();
+	}
 	/*ctx = myGameArea.context;
 	ctx.strokeStyle = "white";
 	ctx.fillStyle = "black";
@@ -167,6 +169,6 @@ window.addEventListener("deviceorientation", handleOrientation);
 	
 <button id="butt1" type="button" onclick="getOrientationPermission()">Click me to allow tilt on iPhone.</button>
 
-<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.003</p>
+<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.004</p>
 </body>
 </html>
