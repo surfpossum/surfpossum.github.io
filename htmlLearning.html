@@ -126,7 +126,10 @@ function updateGameArea() {
     }
     myGamePiece.angle = angle;                          
     myGamePiece.update();
-	
+
+	ctx.beginPath();
+	ctx.arc(myGameArea.x, myGameArea.y, 1, 0, 2 * Math.PI);
+	ctx.stroke();
 	/*ctx = myGameArea.context;
 	ctx.strokeStyle = "white";
 	ctx.fillStyle = "black";
