@@ -149,8 +149,8 @@ function handleOrientation(event) {
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
 	
 	//update x and y based on orientation
-	myGameArea.x += Math.round(myGameArea.orientationX / 50,4);
-	myGameArea.y += Math.round(myGameArea.orientationY / 50,4);
+	myGameArea.x += myGameArea.orientationX / 50;
+	myGameArea.y += myGameArea.orientationY / 50;
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
