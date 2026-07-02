@@ -127,7 +127,7 @@ function updateGameArea() {
     myGamePiece.angle = angle;                          
     myGamePiece.update();
 	
-	ctx = myGameArea.context;
+	/*ctx = myGameArea.context;
 	ctx.strokeStyle = "white";
 	ctx.fillStyle = "black";
 	ctx.font = "14px Arial";
@@ -138,7 +138,7 @@ function updateGameArea() {
 	ctx.fillText("tiltX is " + Math.round(myGameArea.orientationX,2).toString(), 10, 10);
 	ctx.fillText("tiltY is " + Math.round(myGameArea.orientationY,2).toString(), 10, 30);
 	ctx.fillText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
-	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);
+	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);*/
 }
 
 function handleOrientation(event) {
@@ -146,8 +146,8 @@ function handleOrientation(event) {
 	myGameArea.orientationY = event.beta; // In degree in the range [-180,180)
 	
 	//update x and y based on orientation
-	myGameArea.x += Math.round(myGameArea.orientationX / 50,2);
-	myGameArea.y += Math.round(myGameArea.orientationY / 50,2);
+	myGameArea.x += Math.round(myGameArea.orientationX / 50,4);
+	myGameArea.y += Math.round(myGameArea.orientationY / 50,4);
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
