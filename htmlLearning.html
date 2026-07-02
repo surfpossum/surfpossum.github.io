@@ -121,8 +121,8 @@ function handleOrientation(event) {
 	var c = document.getElementById("myGameArea");
 	var ctx = c.getContext("2d");
 	ctx.font = "14px Arial";
-	ctx.fillText(x, 10, 50);
-	ctx.fillText(y, 30, 50);
+	ctx.fillText("x is" + x, 10, 50);
+	ctx.fillText("x is" + y, 30, 50);
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
