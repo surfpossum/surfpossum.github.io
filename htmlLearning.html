@@ -14,18 +14,18 @@ canvas {
 </head>
 <body onload="startGame()">
 <script>
-document.getElementById("butt1").addEventListener("click", async () => {
+function getOrientationPermission()  {
   if (typeof DeviceOrientationEvent.requestPermission !== "function") {
     return;
   }
 
-  const permission = await DeviceOrientationEvent.requestPermission(true);
-  if (permission === "granted") {
+  const permission = DeviceOrientationEvent.requestPermission(true);
+  if (permission == "granted") {
     window.addEventListener("deviceorientationabsolute", (event) => {
-      console.log(`Absolute alpha: ${event.alpha}`);
-    });
+      console.log('Absolute alpha: ${event.alpha}');
+    })
   }
-});
+}
 	
 var myGamePiece;
 
