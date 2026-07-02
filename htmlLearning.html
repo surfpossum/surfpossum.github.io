@@ -114,11 +114,24 @@ function updateGameArea() {
     myGamePiece.update();
 }
 
+function handleOrientation(event) {
+	let x = event.beta; // In degree in the range [-180,180)
+	let y = event.gamma; // In degree in the range [-90,90)
+	
+	var c = document.getElementById("myGameArea");
+	var ctx = c.getContext("2d");
+	ctx.font = "14px Arial";
+	ctx.fillText(x, 10, 50);
+	ctx.fillText(y, 30, 50);
+}
+
+window.addEventListener("deviceorientation", handleOrientation);
+
 </script>
 
 <p>The square follows your mouse.  Try a click.</p>
 	
-<button id="butt1" type="button">Click me.</button>
+<button id="butt1" type="button" onclick="getOrientationPermission()">Click me.</button>
 	
 </body>
 </html>
