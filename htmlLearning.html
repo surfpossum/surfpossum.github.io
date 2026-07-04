@@ -116,6 +116,7 @@ function component(width, height, color, x, y) {
 function updateGameArea() {
 	if (myGameArea.erase)
 		myGameArea.clear();
+	gamePadInput();
     if (myGameArea.x && myGameArea.y) {
 		
 		//find angle from x and y to game piece
@@ -151,6 +152,27 @@ function updateGameArea() {
 	ctx.fillText("tiltY is " + Math.round(myGameArea.orientationY,2).toString(), 10, 30);
 	ctx.fillText("mouseX is " + Math.round(myGameArea.x,2).toString(), 10, 50);
 	ctx.fillText("mousey is " + Math.round(myGameArea.y,2).toString(), 10, 70);*/
+}
+
+function gamePadInput() {
+	const gamepads = navigator.getGamepads();
+	if (!gamepads) {
+		return;
+	}
+
+	const gp = gamepads[0];
+	if (gp.buttons[0].pressed) {
+		myGameArea.x--;
+	}
+	if (gp.buttons[2].pressed) {
+		myGameArea.x++;
+	}
+	if (gp.buttons[1].pressed) {
+    	myGameArea.y++;
+  	}
+  	if (gp.buttons[3].pressed) {
+    	myGameArea.y--;
+  	}
 }
 
 function handleOrientation(event) {
@@ -193,6 +215,6 @@ window.addEventListener("gamepadconnected", (e) => {
 <br><br>
 <button id="butt1" type="button" onclick="getOrientationPermission()">Click me to allow tilt on iPhone</button>
 
-<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.010</p>
+<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.011</p>
 </body>
 </html>
