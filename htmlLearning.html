@@ -175,6 +175,16 @@ function handleOrientation(event) {
 
 window.addEventListener("deviceorientation", handleOrientation);
 
+window.addEventListener("gamepadconnected", (e) => {
+	console.log(
+		"Gamepad connected at index %d: %s. %d buttons, %d axes.",
+		e.gamepad.index,
+		e.gamepad.id,
+		e.gamepad.buttons.length,
+		e.gamepad.axes.length,
+	);
+});
+
 </script>
 
 <p>The square follows your mouse or the tilt of your phone.</p>
@@ -183,6 +193,6 @@ window.addEventListener("deviceorientation", handleOrientation);
 <br><br>
 <button id="butt1" type="button" onclick="getOrientationPermission()">Click me to allow tilt on iPhone</button>
 
-<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.009</p>
+<p style="font-size:20%;">This bit is here to tell me that we are on v0.0.010</p>
 </body>
 </html>
